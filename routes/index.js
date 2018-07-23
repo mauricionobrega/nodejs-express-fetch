@@ -27,7 +27,7 @@ module.exports = () => [
     'path': '/',
     'method': 'POST',
     'fetchers': {
-      'planetary': {
+      'register': {
         'url': 'https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo'
       },
       'imagery': {
@@ -36,6 +36,31 @@ module.exports = () => [
     },
     'middlewares': {
       'final': (request, response, next) => {
+        response.send(request.body ? request.fetched : { 'NO-VALUES': true });
+      }
+    }
+  },
+  {
+    'path': '/signup-me',
+    'method': 'POST',
+    'fetchers': {
+      'register': {
+        'url': 'https://one-lr38azr3p5m9.runkit.sh/',
+        'options': (request, response) => {
+          return {
+            method: 'POST',
+            body: JSON.stringify(request.body)
+          }
+        }
+        // 'options': {
+        //   method: 'POST',
+        //   body: 'nadaahver@gmail.com'
+        // }
+      }
+    },
+    'middlewares': {
+      'final': (request, response, next) => {
+        console.log(request.fetched)
         response.send(request.body ? request.fetched : { 'NO-VALUES': true });
       }
     }

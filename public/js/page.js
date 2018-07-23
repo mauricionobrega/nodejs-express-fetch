@@ -13,7 +13,7 @@ namespace.data = ({
 
 namespace.post = ({
   user: function (data) {
-    return fetch('/', {
+    return fetch('/signup-me', {
       method: 'POST',
       body: data ? JSON.stringify(data) : undefined,
       headers: {

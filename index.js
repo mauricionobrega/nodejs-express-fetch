@@ -26,7 +26,8 @@ const fetcherAll = (fetchers) => (request, reponse, next) => {
       for (let name in fetchers) {
         formulas[name] = (callback) => {
           const fetcher = fetchers[name];
-          fetch(fetcher.url).then(response => response.json()).then(json => {
+          const options = fetcher.options && typeof fetcher.options === 'function' ? fetcher.options(request, reponse) : fetcher.options;
+          fetch(fetcher.url, options).then(response => response.json()).then(json => {
             callback(null, json);
           });
         }
