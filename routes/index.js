@@ -45,11 +45,11 @@ module.exports = () => [
     'method': 'POST',
     'fetchers': {
       'register': {
-        'url': 'https://one-lr38azr3p5m9.runkit.sh/',
+        'url': 'https://one-s41saeqv40dj.runkit.sh/',
         'options': (request, response) => {
           return {
             method: 'POST',
-            body: JSON.stringify(request.body)
+            body: request.body
           }
         }
         // 'options': {
