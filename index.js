@@ -14,7 +14,7 @@ const setHeaders = (headers) => (request, response, next) => {
     response.setHeader(header.name, header.value.trim());
   }
   next();
-}
+};
 const renderTemplate = (templatePath) => (request, response) => {
   response.send(`response.render ${templatePath}`);
 };
