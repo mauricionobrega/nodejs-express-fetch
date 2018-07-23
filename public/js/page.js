@@ -2,7 +2,7 @@ var namespace = {};
 
 namespace.data = ({
   name: 'Mauricio',
-  email: 'mauricio.nobrega@gmail.com',
+  email: 'mauricio@gmail.com',
   get: function () {
     return {
       name: this.name,

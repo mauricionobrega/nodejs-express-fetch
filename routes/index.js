@@ -60,7 +60,6 @@ module.exports = () => [
     },
     'middlewares': {
       'final': (request, response, next) => {
-        console.log(request.fetched)
         response.send(request.body ? request.fetched : { 'NO-VALUES': true });
       }
     }
