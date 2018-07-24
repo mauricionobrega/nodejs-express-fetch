@@ -45,11 +45,12 @@ module.exports = () => [
     'method': 'POST',
     'fetchers': {
       'register': {
-        'url': 'https://one-s41saeqv40dj.runkit.sh/',
+        'url': 'http://localhost:3000/signup-me',
         'options': (request, response) => {
           return {
             method: 'POST',
-            body: request.body
+            body: JSON.stringify(request.body),
+            headers: { 'Content-Type': 'application/json' }
           }
         }
         // 'options': {
@@ -60,6 +61,7 @@ module.exports = () => [
     },
     'middlewares': {
       'final': (request, response, next) => {
+        console.log('request.fetched: ', request.fetched);
         response.send(request.body ? request.fetched : { 'NO-VALUES': true });
       }
     }
