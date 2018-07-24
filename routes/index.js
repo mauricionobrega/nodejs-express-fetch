@@ -53,15 +53,11 @@ module.exports = () => [
             headers: { 'Content-Type': 'application/json' }
           }
         }
-        // 'options': {
-        //   method: 'POST',
-        //   body: 'nadaahver@gmail.com'
-        // }
       }
     },
     'middlewares': {
       'final': (request, response, next) => {
-        console.log('request.fetched: ', request.fetched);
+        // console.log('request.fetched: ', request.fetched);
         response.send(request.body ? request.fetched : { 'NO-VALUES': true });
       }
     }
